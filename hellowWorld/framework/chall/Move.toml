@@ -1,9 +1,0 @@
-[package]
-name = 'hello_world'
-version = '1.0.0'
-
-[dependencies]
-Sui = { git = "https://github.com/MystenLabs/sui.git", subdir = "crates/sui-framework/packages/sui-framework", rev = "devnet" }
-
-[addresses]
-challenge =  "0x0"
