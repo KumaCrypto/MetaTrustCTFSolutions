@@ -16,7 +16,7 @@ contract GreeterGateTest is Test {
         gate = new Gate(data1, data2, data3);
     }
 
-    function test_hackGate() public {
+    function test_hackGreeterGate() public {
         bytes32 answer = vm.load(address(gate), bytes32(uint256(5)));
 
         bytes memory bytesAnswer;

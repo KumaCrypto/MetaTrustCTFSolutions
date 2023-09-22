@@ -17,7 +17,7 @@ contract GreaterVaultTest is Test {
         assertFalse(setUpContract.isSolved());
     }
 
-    function test_hack() public {
+    function test_hackGreeterVault() public {
         bytes32 password = vm.load(address(vault), bytes32(uint256(1)));
 
         vault.changeOwner(password, payable(address(this)));
