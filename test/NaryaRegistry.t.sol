@@ -4,6 +4,15 @@ pragma solidity ^0.8.0;
 import {Test} from "forge-std/Test.sol";
 import {NaryaRegistry} from "../src/NaryaRegistry.sol";
 
+// In this task, we need to attain the title of NaryaHacker, which we can achieve in the `identifyNaryaHacker` function, in case if our balance equals 0xDA0.
+
+// 1. First, we need to `register` to obtain the initial balance.
+// 2. Although the `pwn` function has a restriction on being called only once, we can bypass it using reentrancy. This means during the callback:
+//    ```
+//    (bool result, ) = sender.call(abi.encodeWithSignature("PwnedNoMore(uint256)", _amount));
+//    ```
+//    Since the balance changes after the call, we need to manage it ourselves and perform reentrancy until our balance becomes 0xDA0.
+
 contract NaryaRegistryTest is Test {
     uint256 private constant TARGET_BALANCE = 0xDA0;
 
