@@ -18,7 +18,10 @@ import {Challenge, StakingPool} from "../src/ETHStaking/Challenge.sol";
 // );
 // ```
 
-// We can see that the first part of the expression (before the `||` sign) cannot be satisfied by us, as we cannot be the operator; this limitation comes from the Insurance contract here.
+// We can see that the first part of the expression (before the `||` sign) cannot be satisfied by us, as we cannot be the operator; this limitation comes from the Insurance contract here:
+// ```
+// require(StakingPool(payable(msg.sender)).operator() == operator, "Invalid operator");
+// ```
 
 // This means our balance must be positive and 12 weeks must have passed.
 
